@@ -3,7 +3,7 @@
 # Dependency packages:
 #   rhel    bc
 #   dsm     bc
-#   openwrt bc, coreutils-numfmt, coreutils-date
+#   openwrt bc, coreutils-numfmt, coreutils-date, coreutils-stat
 
 ########################################
 # error 출력
