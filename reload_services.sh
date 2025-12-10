@@ -13,7 +13,7 @@ msg_file=/home/dev/.local/log/$(basename "$0" | sed 's/.sh//').tmp
   fi
 
   if [ -d /opt/jenkins/ ]; then
-    cd /opt/jenkins
+    cd /opt/jenkins || exit
     docker compose rm -f -s && docker compose pull && docker compose up -d
     echo "jenkins: $(docker inspect --format '{{json .State.Status}}' jenkins \
       | sed 's/"//g')"
