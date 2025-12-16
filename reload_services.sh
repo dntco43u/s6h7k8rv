@@ -19,6 +19,14 @@ msg_file=/home/dev/.local/log/$(basename "$0" | sed 's/.sh//').tmp
       | sed 's/"//g')"
   fi
 
+  #FIXME: promtail 15:00 종료 원인 파악될 때까지
+  if [ -d /opt/promtail ]; then
+    cd /opt/promtail || exit
+    docker compose rm -f -s && docker compose pull && docker compose up -d
+    echo "promtail: $(docker inspect --format '{{json .State.Status}}' promtail \
+      | sed 's/"//g')"
+  fi
+
   if [ -d /etc/vsftpd ]; then
     systemctl restart vsftpd.service
     echo "vsftpd.service: $(systemctl is-active vsftpd.service)"
