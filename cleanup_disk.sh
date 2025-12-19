@@ -34,12 +34,12 @@ fi
   #docker 미사용 이미지 삭제
   read -ra args < <(docker images -q -f dangling=true)
   docker rmi "${args[@]}"
-  
+
   #prrometheus wal 삭제 (임시)
   #rm -rf /opt/prometheus/data/wal/*
-  #rm -rf /opt/prometheus/data/chuncks_head/*  
+  #rm -rf /opt/prometheus/data/chuncks_head/*
   #nginx log 삭제 (임시)
-  truncate -s 0 /opt/nginx/log/*.log
+  #truncate -s 0 /opt/nginx/log/*.log
 
   #xfs 조각 모음
   /usr/sbin/xfs_fsr "$disk";
