@@ -69,19 +69,19 @@ fi
     "ahgcnzl5-s3:/ahgcnzl5/backups/$HOSTNAME"
 
   #gvp6nx1a-alist-ndgzbj1c@teambition
-  eval rclone delete \
-    --config /home/dev/.config/rclone/rclone.conf \
-    --log-file /home/dev/.local/log/rclone_conf_backup.log --log-level DEBUG \
-    --include "{conf_*.7z}" \
-    --min-age 7d \
-    "gvp6nx1a-alist-$net_type:/ndgzbj1c@teambition/backups/$HOSTNAME"
-  eval rclone copy \
-    --config /home/dev/.config/rclone/rclone.conf \
-    --log-file /home/dev/.local/log/rclone_conf_backup.log --log-level DEBUG \
-    --include "{conf_*.7z}" \
-    --ignore-times \
-    "/tmp/conf_$HOSTNAME/conf_$today.7z" \
-    "gvp6nx1a-alist-$net_type:/ndgzbj1c@teambition/backups/$HOSTNAME"
+  #eval rclone delete \
+  #  --config /home/dev/.config/rclone/rclone.conf \
+  #  --log-file /home/dev/.local/log/rclone_conf_backup.log --log-level DEBUG \
+  #  --include "{conf_*.7z}" \
+  #  --min-age 7d \
+  #  "gvp6nx1a-alist-$net_type:/ndgzbj1c@teambition/backups/$HOSTNAME"
+  #eval rclone copy \
+  #  --config /home/dev/.config/rclone/rclone.conf \
+  #  --log-file /home/dev/.local/log/rclone_conf_backup.log --log-level DEBUG \
+  #  --include "{conf_*.7z}" \
+  #  --ignore-times \
+  #  "/tmp/conf_$HOSTNAME/conf_$today.7z" \
+  #  "gvp6nx1a-alist-$net_type:/ndgzbj1c@teambition/backups/$HOSTNAME"
 } > "$log_file"
 
 { show_file_stat "/tmp/conf_$HOSTNAME/conf_$today.7z"

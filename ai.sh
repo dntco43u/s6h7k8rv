@@ -1,5 +1,5 @@
 #!/bin/bash
-# py-ai
+# ai
 
 source /home/dev/.bashrc
 source /home/dev/.local/bin/utils.sh

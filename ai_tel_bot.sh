@@ -1,5 +1,5 @@
 #!/bin/bash
-# py_ai_tel_bot
+# ai_tel_bot
 
 source /home/dev/.bashrc
 source /home/dev/.local/bin/utils.sh

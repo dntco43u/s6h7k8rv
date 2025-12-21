@@ -1,5 +1,5 @@
 #!/bin/bash
-# py_med_exam
+# med_exam
 
 source /home/dev/.bashrc
 source /home/dev/.local/bin/utils.sh
