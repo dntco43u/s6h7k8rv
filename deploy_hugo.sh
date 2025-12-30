@@ -24,9 +24,9 @@ while read -r line; do
   fi
 done
 
-echo "HUGO_VERSION=$hugo_version" > /opt/$container_name/data/public/.env
-echo "HUGO_EXTENDED=$hugo_extended" >> /opt/$container_name/data/public/.env
-cat /opt/$container_name/data/public/.env
+echo "HUGO_VERSION=$hugo_version" > /opt/$container_name/data/.env
+echo "HUGO_EXTENDED=$hugo_extended" >> /opt/$container_name/data/.env
+cat /opt/$container_name/data/.env
 cd /opt/$container_name/data/public || exit
 #git rm -r --cached .
 git add . && git commit -m "update" && git push -u origin main
