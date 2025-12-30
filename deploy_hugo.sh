@@ -24,9 +24,14 @@ while read -r line; do
   fi
 done
 
+# prod-server에서 참조하도록 dev-server 기준의 .env를 생성
 echo "HUGO_VERSION=$hugo_version" > /opt/$container_name/data/.env
 echo "HUGO_EXTENDED=$hugo_extended" >> /opt/$container_name/data/.env
 cat /opt/$container_name/data/.env
+
+# github pages는 속도를 위해 history 항상 삭제
 cd /opt/$container_name/data/public || exit
 #git rm -r --cached .
-git add . && git commit -m "update" && git push -u origin main
+rm -rf .git && git init
+git remote add origin git@github.com:dntco43u/dntco43u.github.io.git
+git add . && git commit -m "Update" && git push -u -f origin main
