@@ -13,7 +13,7 @@ else
   hugo_extended=false
 fi
 
-rm -rf /opt/$container_name/data/public/*
+#rm -rf /opt/$container_name/data/public/*
 cd /opt/$container_name && docker compose rm -f -s && docker compose up -d && docker exec -it $container_name date +"%Z"
 sudo tail -fn0 /var/lib/docker/containers/"$(docker inspect --format="{{.Id}}" $container_name)/local-logs/container.log" | \
 # 정적 파일 생성까지 대기
@@ -34,4 +34,4 @@ cd /opt/$container_name/data/public || exit
 #git rm -r --cached .
 rm -rf .git && git init
 git remote add origin git@github.com:dntco43u/dntco43u.github.io.git
-git add . && git commit -m "Update" && git push -u -f origin main
+git add . && git commit -m "update #$HOSTNAME" && git push -u -f origin main
